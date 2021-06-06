@@ -68,3 +68,13 @@ Taxable_Pay real,
 Income_Tax real,
 Net_pay real;
 select *from employee_payroll
+
+update employee_payroll set Basic_pay=50000,Deducation=15500, Taxable_Pay=2000, Income_Tax=30000, Net_pay=200000 where name='Ramesh'
+update employee_payroll set Basic_pay=50000,Deducation=1500, Taxable_Pay=2450, Income_Tax=40000, Net_pay=150000 where name='Tesrisha'
+update employee_payroll set Basic_pay=20000,Deducation=2000, Taxable_Pay=5000, Income_Tax=3000, Net_pay=50000 where name='Jack'
+update employee_payroll set Basic_pay=50000,Deducation=3500, Taxable_Pay=2000, Income_Tax=60000, Net_pay=250000 where name='Rani'
+
+update employee_payroll set Department = 'Sales' where name = 'Tesrisha' 
+update employee_payroll set Department = 'Marketing' where name = 'Ramesh' 
+update employee_payroll set Department = 'HR' where name = 'Jack' 
+update employee_payroll set Department = 'sales' where name = 'Rani' 
