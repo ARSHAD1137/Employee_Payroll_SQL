@@ -51,6 +51,10 @@ select count(salary) from employee_payroll where gender = 'M' group by gender;
 
 select count(salary) from employee_payroll where gender = 'F' group by gender;
 
+alter table employee_payroll add
+PhoneNo varchar(12),
+Address varchar(300),
+Department varchar (50);
+select *from employee_payroll
 
-
-
+update employee_payroll set phoneNo='818188181',Address='Mumbai',Department='CS' where name='Ramesh'
