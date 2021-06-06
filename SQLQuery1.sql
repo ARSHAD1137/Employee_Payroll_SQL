@@ -58,3 +58,13 @@ Department varchar (50);
 select *from employee_payroll
 
 update employee_payroll set phoneNo='818188181',Address='Mumbai',Department='CS' where name='Ramesh'
+update employee_payroll set phoneNo='877171777',Address='Pune',Department='CS' where name='Tesrisha'
+update employee_payroll set phoneNo='992929292',Address='New York',Department='CS' where name='Jack'
+update employee_payroll set phoneNo='818188181',Address='Delhi',Department='CS' where name='Rani'
+
+alter table employee_payroll add
+Deducation float,
+Taxable_Pay real,
+Income_Tax real,
+Net_pay real;
+select *from employee_payroll
