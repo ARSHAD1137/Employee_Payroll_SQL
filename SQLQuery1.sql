@@ -52,29 +52,60 @@ select count(salary) from employee_payroll where gender = 'M' group by gender;
 select count(salary) from employee_payroll where gender = 'F' group by gender;
 
 alter table employee_payroll add
-PhoneNo varchar(12),
-Address varchar(300),
-Department varchar (50);
+Address varchar(50)
+
+Update employee_payroll set Address='India'
+Update employee_payroll set Address='India'
+Update employee_payroll set Address='India'
+Update employee_payroll set Address='India'
+
 select *from employee_payroll
 
-update employee_payroll set phoneNo='818188181',Address='Mumbai',Department='CS' where name='Ramesh'
-update employee_payroll set phoneNo='877171777',Address='Pune',Department='CS' where name='Tesrisha'
-update employee_payroll set phoneNo='992929292',Address='New York',Department='CS' where name='Jack'
-update employee_payroll set phoneNo='818188181',Address='Delhi',Department='CS' where name='Rani'
+create table Department
+(
+Dept_Id int,
+Dept_Name varchar(10) default 'CS'
+);
+Alter table Department add
+foreign key(Dept_Id) References employee_payroll(Id);
+select *from Department
+Insert into Department(Dept_Name) values
+('Sales'),
+('Sales'),
+('HR'),
+('Marketing');
+
+create table Dept_Emp
+(
+Dept_Id int,
+EMP_Id int
+);
+Alter table Dept_Emp add
+foreign key(EMP_Id) References employee_payroll(Id);
+select *from Dept_Emp
+Insert into Dept_Emp(Dept_Id) values
+(101),
+(102),
+(103),
+(104);
 
 alter table employee_payroll add
-Deducation float,
-Taxable_Pay real,
-Income_Tax real,
-Net_pay real;
-select *from employee_payroll
+Deducation int,
+Taxable_Pay int,
+Income_Tax int,
+Net_pay int;
 
-update employee_payroll set Basic_pay=50000,Deducation=15500, Taxable_Pay=2000, Income_Tax=30000, Net_pay=200000 where name='Ramesh'
-update employee_payroll set Basic_pay=50000,Deducation=1500, Taxable_Pay=2450, Income_Tax=40000, Net_pay=150000 where name='Tesrisha'
-update employee_payroll set Basic_pay=20000,Deducation=2000, Taxable_Pay=5000, Income_Tax=3000, Net_pay=50000 where name='Jack'
-update employee_payroll set Basic_pay=50000,Deducation=3500, Taxable_Pay=2000, Income_Tax=60000, Net_pay=250000 where name='Rani'
+Select *from employee_payroll
 
-update employee_payroll set Department = 'Sales' where name = 'Tesrisha' 
-update employee_payroll set Department = 'Marketing' where name = 'Ramesh' 
-update employee_payroll set Department = 'HR' where name = 'Jack' 
-update employee_payroll set Department = 'sales' where name = 'Rani' 
+Update employee_payroll set Deducation=10000,Taxable_Pay=5000,Income_Tax=10000,Net_Pay=100000 where name='Ramesh';
+Update employee_payroll set Deducation=20000,Taxable_Pay=4000,Income_Tax=20000,Net_Pay=100000 where name='Tesrisha';
+Update employee_payroll set Deducation=3000,Taxable_Pay=7000,Income_Tax=15000,Net_Pay=200000 where name='Jack';
+Update employee_payroll set Deducation=15000,Taxable_Pay=8000,Income_Tax=10000,Net_Pay=250000 where name='Rani';
+
+create table phoneNo
+(
+Emp_Id int,
+Emp_PhoneNo int
+);
+Alter table PhoneNo add
+foreign key(EMP_Id) References employee_payroll(Id);
